@@ -85,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Reshani Samarakoon — Aspiring AI Engineer" },
       { name: "description", content: "Portfolio of Reshani Samarakoon, AI undergraduate at SLIIT." },
       { name: "author", content: "Reshani Samarakoon" },
-      { name: "theme-color", content: "#0A0A0A" },
+      { name: "theme-color", content: "#FFFFFF" },
       { property: "og:title", content: "Reshani Samarakoon — Aspiring AI Engineer" },
       { property: "og:description", content: "Portfolio of Reshani Samarakoon, AI undergraduate at SLIIT." },
       { property: "og:type", content: "website" },
@@ -113,7 +113,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>

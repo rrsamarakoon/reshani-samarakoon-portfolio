@@ -114,13 +114,13 @@ export function Skills() {
               <div
                 className={
                   cat.featured
-                    ? "group card-surface h-full border-primary/40 p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
-                    : "group card-surface h-full p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40"
+                    ? "group card-surface h-full border-primary-ink/40 p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
+                    : "group card-surface h-full p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary-ink/40"
                 }
               >
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex min-w-0 items-center gap-3">
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent text-primary">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent text-primary-ink">
                       <cat.icon className="h-5 w-5" />
                     </span>
                     <h3 className="truncate text-lg font-semibold">{cat.title}</h3>
@@ -133,9 +133,9 @@ export function Skills() {
                   {cat.skills.map((s) => (
                     <li
                       key={s.name}
-                      className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium transition-colors hover:border-primary/60 hover:text-primary"
+                      className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium transition-colors hover:border-primary-ink/60 hover:text-primary-ink"
                     >
-                      <s.icon className="h-4 w-4 text-primary" />
+                      <s.icon className="h-4 w-4 text-primary-ink" />
                       {s.name}
                     </li>
                   ))}

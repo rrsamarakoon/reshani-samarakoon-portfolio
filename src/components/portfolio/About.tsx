@@ -26,8 +26,8 @@ export function About() {
               </div>
             </Reveal>
             <Reveal delay={0.25}>
-              <blockquote className="relative mt-6 rounded-2xl border-l-2 border-primary bg-accent py-6 pr-6 pl-8">
-                <Quote className="absolute top-5 right-5 h-8 w-8 text-primary/30" aria-hidden="true" />
+              <blockquote className="relative mt-6 rounded-2xl border-l-2 border-primary-ink bg-accent py-6 pr-6 pl-8">
+                <Quote className="absolute top-5 right-5 h-8 w-8 text-primary-ink/30" aria-hidden="true" />
                 <p className="font-display text-2xl leading-snug font-semibold italic sm:text-3xl">
                   {about.statement}
                 </p>
@@ -46,7 +46,7 @@ export function About() {
                     <dd
                       className={
                         f.label === "Current Status"
-                          ? "text-sm font-semibold text-primary"
+                          ? "text-sm font-semibold text-primary-ink"
                           : "text-sm font-semibold text-foreground"
                       }
                     >

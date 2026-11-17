@@ -18,19 +18,19 @@ function FlowDiagram({ project }: { project: Project }) {
         <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gold text-primary-foreground shadow-glow-sm">
           <Icon className="h-7 w-7" />
         </span>
-        <span className="font-display text-6xl font-bold text-foreground/10">{project.number}</span>
+        <span className="font-display text-6xl font-bold text-foreground/15">{project.number}</span>
       </div>
       <ol className="relative mt-8 space-y-2.5" aria-label="System flow">
         {project.flow.map((step, i) => (
           <li key={step} className="flex items-center gap-3">
-            <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-primary/50 font-mono text-[0.65rem] text-primary">
+            <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-primary-ink/50 font-mono text-[0.65rem] text-primary-ink">
               {i + 1}
             </span>
             <span
               className={cn(
                 "rounded-md border px-3 py-1.5 text-xs font-medium",
                 i === project.flow.length - 1
-                  ? "border-primary bg-accent text-primary"
+                  ? "border-primary-ink bg-accent text-primary-ink"
                   : "border-border bg-surface text-foreground",
               )}
             >
@@ -47,7 +47,7 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
   const [open, setOpen] = useState(false);
   return (
     <Reveal>
-      <article className="group card-surface relative overflow-hidden p-5 transition-all duration-500 hover:border-primary/40 hover:shadow-glow sm:p-7">
+      <article className="group card-surface relative overflow-hidden p-5 transition-all duration-500 hover:border-primary-ink/40 hover:shadow-glow sm:p-7">
         <div className={cn("grid gap-8 lg:grid-cols-12", reverse && "lg:[&>*:first-child]:order-2")}>
           <div className="lg:col-span-5">
             <FlowDiagram project={project} />
@@ -115,7 +115,7 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
                 <ul className="grid gap-3 sm:grid-cols-2">
                   {project.contributions.map((c) => (
                     <li key={c} className="flex gap-3 rounded-xl border border-border bg-background p-4 text-sm leading-relaxed">
-                      <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-primary-ink" />
                       {c}
                     </li>
                   ))}

@@ -59,7 +59,7 @@ export function Navbar() {
                 href={`#${link.id}`}
                 className={cn(
                   "relative px-3.5 py-2 text-sm font-medium transition-colors",
-                  active === link.id ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                  active === link.id ? "text-primary-ink" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {link.label}
@@ -84,7 +84,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-primary-ink hover:text-primary-ink lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
@@ -109,7 +109,7 @@ export function Navbar() {
                     onClick={() => setOpen(false)}
                     className={cn(
                       "flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-colors",
-                      active === link.id ? "bg-accent text-primary" : "text-foreground hover:bg-surface",
+                      active === link.id ? "bg-accent text-primary-ink" : "text-foreground hover:bg-surface",
                     )}
                   >
                     {link.label}

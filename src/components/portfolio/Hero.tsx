@@ -55,7 +55,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease }}
         >
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-primary/40 bg-accent px-4 py-2 text-xs font-semibold text-primary">
+          <div className="inline-flex items-center gap-2.5 rounded-full border border-primary-ink/40 bg-accent px-4 py-2 text-xs font-semibold text-primary-ink">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
@@ -69,7 +69,7 @@ export function Hero() {
 
           <a
             href="#contact"
-            className="group mt-7 inline-flex items-center gap-2 border-b border-primary pb-1 text-sm font-semibold text-primary transition-colors hover:text-primary-soft"
+            className="group mt-7 inline-flex items-center gap-2 border-b border-primary-ink pb-1 text-sm font-semibold text-primary-ink transition-colors hover:text-foreground"
           >
             <Mail className="h-4 w-4" /> Contact Me
             <ArrowDownRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
@@ -81,7 +81,7 @@ export function Hero() {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn profile"
-              className="grid h-11 w-11 place-items-center rounded-full border border-border text-foreground transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+              className="grid h-11 w-11 place-items-center rounded-full border border-border text-foreground transition-all hover:-translate-y-0.5 hover:border-primary-ink hover:text-primary-ink"
             >
               <LinkedInIcon className="h-4 w-4" />
             </a>
@@ -90,7 +90,7 @@ export function Hero() {
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub profile"
-              className="grid h-11 w-11 place-items-center rounded-full border border-border text-foreground transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+              className="grid h-11 w-11 place-items-center rounded-full border border-border text-foreground transition-all hover:-translate-y-0.5 hover:border-primary-ink hover:text-primary-ink"
             >
               <GitHubIcon className="h-4 w-4" />
             </a>

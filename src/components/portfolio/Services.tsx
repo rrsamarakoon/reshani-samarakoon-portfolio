@@ -24,10 +24,10 @@ export function Services() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={(i % 3) * 0.08}>
-              <div className="group card-surface relative h-full overflow-hidden p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
+              <div className="group card-surface relative h-full overflow-hidden p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary-ink/50">
                 <span className="bg-gold absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
                 <div className="flex items-start justify-between">
-                  <span className="grid h-12 w-12 place-items-center rounded-xl border border-primary/30 bg-accent text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl border border-primary-ink/30 bg-accent text-primary-ink transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                     <s.icon className="h-5 w-5" />
                   </span>
                   <span className="font-mono text-xs text-muted-foreground">0{i + 1}</span>

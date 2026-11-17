@@ -26,7 +26,7 @@ export function NeuralBackground() {
             y1={a.y}
             x2={b.x}
             y2={b.y}
-            className="stroke-primary/15"
+            className="stroke-primary-ink/15"
             strokeWidth={0.08}
           />
         ))}

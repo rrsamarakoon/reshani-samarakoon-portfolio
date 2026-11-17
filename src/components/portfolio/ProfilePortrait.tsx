@@ -7,10 +7,10 @@ export function ProfilePortrait() {
     <div className="relative mx-auto w-full max-w-[360px]">
       <div className="bg-spot absolute -inset-10 blur-2xl" aria-hidden="true" />
       <div
-        className="animate-spin-slow absolute -inset-4 rounded-[2.5rem] border border-dashed border-primary/25"
+        className="animate-spin-slow absolute -inset-4 rounded-[2.5rem] border border-dashed border-primary-ink/25"
         aria-hidden="true"
       />
-      <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-primary/40 bg-surface shadow-glow">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-primary-ink/40 bg-surface shadow-glow">
         {profile.photoUrl ? (
           <>
             <img
@@ -30,10 +30,10 @@ export function ProfilePortrait() {
                 [60, 140, 100, 200], [150, 150, 100, 200], [100, 40, 100, 120], [60, 140, 100, 120],
                 [150, 150, 100, 120],
               ].map(([x1, y1, x2, y2], i) => (
-                <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} className="stroke-primary/25" strokeWidth={0.6} />
+                <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} className="stroke-primary-ink/25" strokeWidth={0.6} />
               ))}
               {[[40, 60], [100, 40], [160, 70], [60, 140], [150, 150], [100, 200], [100, 120]].map(([cx, cy], i) => (
-                <circle key={i} cx={cx} cy={cy} r={2.4} className="fill-primary" />
+                <circle key={i} cx={cx} cy={cy} r={2.4} className="fill-primary-ink" />
               ))}
             </svg>
             <span className="text-gold relative font-display text-[7.5rem] leading-none font-bold">RS</span>
@@ -42,12 +42,12 @@ export function ProfilePortrait() {
         )}
       </div>
 
-      <div className="animate-float absolute -left-4 bottom-10 flex items-center gap-2 rounded-full border border-primary/50 bg-background/90 px-4 py-2 text-sm font-semibold shadow-glow-sm backdrop-blur sm:-left-8">
-        <Sparkles className="h-4 w-4 text-primary" />
+      <div className="animate-float absolute -left-4 bottom-10 flex items-center gap-2 rounded-full border border-primary-ink/50 bg-background/90 px-4 py-2 text-sm font-semibold shadow-glow-sm backdrop-blur sm:-left-8">
+        <Sparkles className="h-4 w-4 text-primary-ink" />
         AI Enthusiast
       </div>
       <div
-        className="animate-float absolute -right-3 top-8 h-14 w-14 rounded-full border-2 border-primary/70"
+        className="animate-float absolute -right-3 top-8 h-14 w-14 rounded-full border-2 border-primary-ink/70"
         style={{ animationDelay: "1.5s" }}
         aria-hidden="true"
       />

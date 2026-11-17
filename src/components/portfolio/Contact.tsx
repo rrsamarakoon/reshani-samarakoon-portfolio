@@ -20,7 +20,7 @@ type Errors = Partial<Record<keyof ContactInput, string>>;
 const empty: ContactInput = { name: "", email: "", subject: "", message: "" };
 
 const fieldClass =
-  "w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary focus:outline-hidden focus:ring-2 focus:ring-primary/25";
+  "w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 transition-colors focus:border-primary-ink focus:outline-hidden focus:ring-2 focus:ring-primary-ink/25";
 
 export function Contact() {
   const [values, setValues] = useState<ContactInput>(empty);
@@ -94,7 +94,7 @@ export function Contact() {
               {channels.map((c) => {
                 const inner = (
                   <>
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent text-primary">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent text-primary-ink">
                       <c.icon className="h-4 w-4" />
                     </span>
                     <span className="min-w-0">
@@ -109,7 +109,7 @@ export function Contact() {
                       <a
                         href={c.href}
                         {...(c.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                        className="card-surface flex items-center gap-4 p-4 transition-all hover:translate-x-1 hover:border-primary/50"
+                        className="card-surface flex items-center gap-4 p-4 transition-all hover:translate-x-1 hover:border-primary-ink/50"
                       >
                         {inner}
                       </a>
@@ -130,7 +130,7 @@ export function Contact() {
                   <h3 className="mt-5 font-display text-2xl font-semibold">Your email is ready to send</h3>
                   <p className="mt-3 max-w-sm text-sm text-muted-foreground">
                     Your email app opened with the message filled in — just hit send. If nothing opened, write to{" "}
-                    <a className="text-primary underline" href={`mailto:${profile.email}`}>
+                    <a className="text-primary-ink underline" href={`mailto:${profile.email}`}>
                       {profile.email}
                     </a>
                     .
