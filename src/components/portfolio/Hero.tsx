@@ -1,7 +1,10 @@
 import { motion } from "motion/react";
 import { ArrowDownRight, ArrowRight, Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { profile } from "@/content/portfolio";
+import { heroAI, profile } from "@/content/portfolio";
+import { AIPromptCard } from "./AIPromptCard";
+import { HeroStack } from "./HeroStack";
+import { useTypewriter } from "./useTypewriter";
 import { cvLinkProps, handleCvClick } from "./cv";
 import { GitHubIcon, LinkedInIcon } from "./icons";
 import { NeuralBackground } from "./NeuralBackground";
@@ -10,10 +13,11 @@ import { ProfilePortrait } from "./ProfilePortrait";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
+  const exploring = useTypewriter(heroAI.exploring);
   return (
-    <section id="home" className="relative isolate overflow-hidden pt-28 pb-20 lg:min-h-screen lg:pt-32">
+    <section id="home" className="relative isolate flex flex-col overflow-hidden pt-28 lg:min-h-screen lg:pt-32">
       <NeuralBackground />
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:gap-8">
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-5 pb-16 sm:px-8 lg:flex-1 lg:grid-cols-12 lg:gap-8">
         <motion.div
           className="lg:col-span-5"
           initial={{ opacity: 0, y: 30 }}
@@ -25,6 +29,16 @@ export function Hero() {
             Building Intelligent Solutions Through <span className="text-gold">AI &amp; Technology.</span>
           </h1>
           <p className="mt-6 text-base font-medium text-foreground/90">{profile.headline}</p>
+
+          <div className="mt-5 inline-flex max-w-full items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-2 font-mono text-xs shadow-card backdrop-blur">
+            <span className="text-primary-ink">&gt;</span>
+            <span className="text-muted-foreground">exploring</span>
+            <span className="truncate font-semibold text-foreground" aria-live="off">
+              {exploring}
+            </span>
+            <span className="animate-caret inline-block h-3.5 w-[2px] shrink-0 bg-primary-ink" aria-hidden="true" />
+            <span className="sr-only">Areas I explore: {heroAI.exploring.join(", ")}</span>
+          </div>
 
           <div className="mt-9 flex flex-wrap gap-3">
             <Button asChild variant="gold" size="xl">
@@ -65,7 +79,7 @@ export function Hero() {
           <p className="mt-6 font-display text-2xl leading-snug font-semibold">
             {profile.status}
           </p>
-          <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">{profile.intro}</p>
+          <AIPromptCard prompt={heroAI.prompt} answer={profile.intro} />
 
           <a
             href="#contact"
@@ -98,6 +112,7 @@ export function Hero() {
           </div>
         </motion.div>
       </div>
+      <HeroStack />
     </section>
   );
 }

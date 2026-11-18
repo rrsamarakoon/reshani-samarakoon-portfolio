@@ -25,6 +25,32 @@ export const profile = {
   photoUrl: portraitAsset.url,
 };
 
+/** Hero "modern AI" details. Everything here is drawn from Reshani's real interests, skills and projects. */
+export const heroAI = {
+  exploring: [
+    "Machine Learning",
+    "Deep Learning",
+    "Computer Vision",
+    "Natural Language Processing",
+    "RAG Systems",
+    "AI Agents with LangGraph",
+  ],
+  prompt: "Who is Reshani?",
+  stack: [
+    "Python",
+    "Scikit-learn",
+    "LangChain",
+    "LangGraph",
+    "Hugging Face",
+    "ChromaDB",
+    "FastAPI",
+    "NumPy",
+    "Seaborn",
+    "RAG",
+  ],
+  visionLabel: "reshani · ai_engineer",
+};
+
 export const navLinks = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
