@@ -1,11 +1,14 @@
 import { profile } from "@/content/portfolio";
 
-/** Shows the real photograph once profile.photoUrl is set; until then an on-brand monogram frame. */
+/**
+ * Shows the real photograph at its native 482x620 ratio so the whole picture is visible —
+ * no cropping, no overlays. Until a photo exists it falls back to an on-brand monogram frame.
+ */
 export function ProfilePortrait() {
   return (
-    <div className="relative w-full max-w-[340px]">
+    <div className="relative w-full max-w-[190px] sm:max-w-[260px] lg:max-w-[340px]">
       <div className="bg-spot absolute -inset-8 blur-2xl" aria-hidden="true" />
-      <div className="relative aspect-square overflow-hidden border border-border bg-surface shadow-card">
+      <div className="relative aspect-[482/620] overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-card">
         {profile.photoUrl ? (
           <img
             src={profile.photoUrl}

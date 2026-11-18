@@ -15,9 +15,9 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function Hero() {
   const exploring = useTypewriter(heroAI.exploring);
   return (
-    <section id="home" className="relative isolate flex flex-col overflow-hidden pt-28 lg:min-h-screen lg:pt-32">
+    <section id="home" className="relative isolate flex flex-col overflow-hidden pt-24 lg:min-h-screen lg:pt-28">
       <NeuralBackground />
-      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-5 pb-16 sm:px-8 lg:flex-1 lg:grid-cols-12 lg:gap-8">
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-5 pb-14 sm:gap-12 sm:px-8 lg:flex-1 lg:grid-cols-12 lg:gap-8">
         <motion.div
           className="lg:col-span-3"
           initial={{ opacity: 0, scale: 0.94 }}
@@ -61,6 +61,32 @@ export function Hero() {
               </a>
             </Button>
           </div>
+
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45, ease }}
+          >
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-surface/90 px-5 py-4 shadow-card backdrop-blur">
+              <span
+                aria-hidden="true"
+                className="absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-primary via-primary to-primary-ink"
+              />
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2.5 pl-2">
+                <span className="inline-flex items-center gap-2 rounded-full bg-primary px-3 py-1 text-[11px] font-bold tracking-[0.12em] text-primary-foreground uppercase">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-foreground/60" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-foreground" />
+                  </span>
+                  Open to internships
+                </span>
+                <p className="font-display text-lg leading-snug font-semibold text-foreground sm:text-xl">
+                  {profile.status}
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -69,16 +95,6 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease }}
         >
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-primary-ink/40 bg-accent px-4 py-2 text-xs font-semibold text-primary-ink">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-            </span>
-            Open to internships
-          </div>
-          <p className="mt-6 font-display text-2xl leading-snug font-semibold">
-            {profile.status}
-          </p>
           <AIPromptCard prompt={heroAI.prompt} answer={profile.intro} />
 
           <a
