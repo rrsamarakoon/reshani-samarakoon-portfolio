@@ -3,22 +3,16 @@ import { profile } from "@/content/portfolio";
 /** Shows the real photograph once profile.photoUrl is set; until then an on-brand monogram frame. */
 export function ProfilePortrait() {
   return (
-    <div className="relative mx-auto w-full max-w-[360px]">
-      <div className="bg-spot absolute -inset-10 blur-2xl" aria-hidden="true" />
-      <div
-        className="animate-spin-slow absolute -inset-4 rounded-full border border-dashed border-primary-ink/25"
-        aria-hidden="true"
-      />
-      <div className="relative aspect-square overflow-hidden rounded-full border-4 border-primary bg-surface shadow-glow">
+    <div className="relative w-full max-w-[340px]">
+      <div className="bg-spot absolute -inset-8 blur-2xl" aria-hidden="true" />
+      <div className="relative aspect-square overflow-hidden border border-border bg-surface shadow-card">
         {profile.photoUrl ? (
-          <>
-            <img
-              src={profile.photoUrl}
-              alt={`Portrait of ${profile.name}`}
-              className="h-full w-full object-cover object-top"
-              loading="eager"
-            />
-          </>
+          <img
+            src={profile.photoUrl}
+            alt={`Portrait of ${profile.name}`}
+            className="h-full w-full object-cover object-top"
+            loading="eager"
+          />
         ) : (
           <div className="relative flex h-full w-full flex-col items-center justify-center">
             <div className="bg-grid absolute inset-0 opacity-70" />
@@ -39,8 +33,6 @@ export function ProfilePortrait() {
           </div>
         )}
       </div>
-
     </div>
   );
 }
-

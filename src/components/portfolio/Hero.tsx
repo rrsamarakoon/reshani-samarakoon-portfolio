@@ -19,7 +19,16 @@ export function Hero() {
       <NeuralBackground />
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-5 pb-16 sm:px-8 lg:flex-1 lg:grid-cols-12 lg:gap-8">
         <motion.div
-          className="lg:col-span-5"
+          className="lg:col-span-3"
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.15, ease }}
+        >
+          <ProfilePortrait />
+        </motion.div>
+
+        <motion.div
+          className="lg:col-span-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease }}
@@ -52,15 +61,6 @@ export function Hero() {
               </a>
             </Button>
           </div>
-        </motion.div>
-
-        <motion.div
-          className="lg:col-span-4"
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.15, ease }}
-        >
-          <ProfilePortrait />
         </motion.div>
 
         <motion.div
