@@ -6,7 +6,7 @@ import { profile } from "@/content/portfolio";
  */
 export function ProfilePortrait() {
   return (
-    <div className="relative w-full max-w-[210px] sm:max-w-[260px]">
+    <div className="relative w-full max-w-[210px] sm:max-w-[280px] lg:max-w-[330px]">
       <div className="bg-spot absolute -inset-8 blur-2xl" aria-hidden="true" />
       <div className="relative aspect-[482/620] overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-card">
         {profile.photoUrl ? (
