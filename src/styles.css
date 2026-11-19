@@ -220,7 +220,7 @@
   animation: caret 1s steps(1) infinite;
 }
 @utility mask-fade-x {
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 14%, black 86%, transparent);
 }
 @utility animate-spin-slow {
   animation: spin-slow 40s linear infinite;
