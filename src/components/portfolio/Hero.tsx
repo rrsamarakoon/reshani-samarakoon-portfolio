@@ -45,7 +45,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease }}
           >
-            <p className="eyebrow">Hello, I'm Reshani Samarakoon</p>
+            <p className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl xl:text-4xl">
+              Hello, I'm <span className="text-gold">Reshani Samarakoon</span>
+            </p>
             <h1 className="mt-6 text-balance font-display text-4xl leading-[1.08] font-bold tracking-tight sm:text-5xl xl:text-[3.4rem]">
               Building Intelligent Solutions Through <span className="text-gold">AI &amp; Technology.</span>
             </h1>
