@@ -32,4 +32,4 @@ use the editor.
 ## Project rules
 - All portfolio copy, links, CV and photo paths live in `src/content/portfolio.ts`; components read from it so content updates never touch layout code.
 - Portfolio sections are components in `src/components/portfolio/`, composed on the single `/` route with in-page anchors because the brief asks for one smooth-scrolling page.
-- The contact form has no mail backend: it validates with `src/lib/contact.ts` and opens a prefilled `mailto:`, so it never claims to have sent anything itself.
+- The contact form sends via EmailJS from the browser (public keys in Contact.tsx); on failure it shows a mailto fallback.

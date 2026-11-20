@@ -1,8 +1,9 @@
 import { useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { CheckCircle2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/content/portfolio";
-import { buildMailto, contactSchema, type ContactInput } from "@/lib/contact";
+import { contactSchema, type ContactInput } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 import { GitHubIcon, LinkedInIcon } from "./icons";
 import { Reveal } from "./Reveal";
@@ -17,6 +18,8 @@ const channels = [
 ];
 
 type Errors = Partial<Record<keyof ContactInput, string>>;
+// EmailJS keys are public (browser-side by design).
+const EMAILJS = { serviceId: "service_895eb9g", templateId: "template_wbvfy1a", publicKey: "55P7uaDijm7gG6GqH" };
 const empty: ContactInput = { name: "", email: "", subject: "", message: "" };
 
 const fieldClass =
@@ -26,13 +29,15 @@ export function Contact() {
   const [values, setValues] = useState<ContactInput>(empty);
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const update = (key: keyof ContactInput, v: string) => {
     setValues((s) => ({ ...s, [key]: v }));
     if (errors[key]) setErrors((e) => ({ ...e, [key]: undefined }));
   };
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const result = contactSchema.safeParse(values);
     if (!result.success) {
@@ -44,9 +49,23 @@ export function Contact() {
       setErrors(next);
       return;
     }
-    window.location.href = buildMailto(profile.email, result.data);
-    setSent(true);
-    setValues(empty);
+    setSending(true);
+    setFailed(false);
+    try {
+      const d = result.data;
+      await emailjs.send(
+        EMAILJS.serviceId,
+        EMAILJS.templateId,
+        { name: d.name, email: d.email, subject: d.subject, message: d.message, from_name: d.name, reply_to: d.email },
+        { publicKey: EMAILJS.publicKey },
+      );
+      setSent(true);
+      setValues(empty);
+    } catch {
+      setFailed(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   const field = (key: keyof ContactInput, label: string, props: Record<string, unknown> = {}) => (
@@ -127,13 +146,9 @@ export function Contact() {
               {sent ? (
                 <div className="flex flex-col items-center py-12 text-center" role="status">
                   <CheckCircle2 className="h-14 w-14 text-success" />
-                  <h3 className="mt-5 font-display text-2xl font-semibold">Your email is ready to send</h3>
+                  <h3 className="mt-5 font-display text-2xl font-semibold">Message sent — thank you!</h3>
                   <p className="mt-3 max-w-sm text-sm text-muted-foreground">
-                    Your email app opened with the message filled in — just hit send. If nothing opened, write to{" "}
-                    <a className="text-primary-ink underline" href={`mailto:${profile.email}`}>
-                      {profile.email}
-                    </a>
-                    .
+                    Thanks for reaching out. I'll get back to you by email soon.
                   </p>
                   <Button variant="subtle" size="xl" className="mt-6" onClick={() => setSent(false)}>
                     Write another message
@@ -148,9 +163,16 @@ export function Contact() {
                   {field("subject", "Subject", { placeholder: "Internship opportunity" })}
                   {field("message", "Message", { placeholder: "Tell me a little about the role or idea…" })}
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-                    <p className="text-xs text-muted-foreground">Opens your email app with this message ready to send.</p>
-                    <Button type="submit" variant="gold" size="xl">
-                      Send Message <Send />
+                    {failed ? (
+                      <p className="text-xs text-destructive" role="alert">
+                        Couldn't send right now. Please email{" "}
+                        <a className="underline" href={`mailto:${profile.email}`}>{profile.email}</a>.
+                      </p>
+                    ) : (
+                      <p className="text-xs text-muted-foreground">Your message goes straight to my inbox.</p>
+                    )}
+                    <Button type="submit" variant="gold" size="xl" disabled={sending}>
+                      {sending ? "Sending…" : "Send Message"} <Send />
                     </Button>
                   </div>
                 </form>
