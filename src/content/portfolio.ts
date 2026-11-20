@@ -1,5 +1,3 @@
-import portraitAsset from "@/assets/reshani-portrait.jpg.asset.json";
-
 /**
  * All portfolio copy and links live here so content can be updated without touching layout code.
  * Leave a URL as null until a real one exists: buttons for missing links are hidden, never faked.
@@ -21,8 +19,11 @@ export const profile = {
   github: "https://github.com/rrsamarakoon",
   /** Path or URL to the CV PDF. null = not supplied yet. */
   cvUrl: null as string | null,
-  /** Path or URL to the real profile photograph. null = show monogram frame. */
-  photoUrl: portraitAsset.url,
+  /**
+   * Real profile photograph, served from public/images so it ships inside every build
+   * (Lovable hosting and Netlify alike). null = show monogram frame.
+   */
+  photoUrl: "/images/reshani-portrait.jpg" as string | null,
 };
 
 /** Hero "modern AI" details. Everything here is drawn from Reshani's real interests, skills and projects. */

@@ -31,5 +31,6 @@ use the editor.
 
 ## Project rules
 - All portfolio copy, links, CV and photo paths live in `src/content/portfolio.ts`; components read from it so content updates never touch layout code.
+- Site images the portfolio shows live in `public/images/` and are referenced by root paths, because the site is also deployed to Netlify where Lovable's `/__l5e/` asset URLs don't resolve.
 - Portfolio sections are components in `src/components/portfolio/`, composed on the single `/` route with in-page anchors because the brief asks for one smooth-scrolling page.
 - The contact form sends via EmailJS from the browser (public keys in Contact.tsx); on failure it shows a mailto fallback.
