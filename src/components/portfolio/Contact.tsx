@@ -56,7 +56,15 @@ export function Contact() {
       await emailjs.send(
         EMAILJS.serviceId,
         EMAILJS.templateId,
-        { name: d.name, email: d.email, subject: d.subject, message: d.message, from_name: d.name, reply_to: d.email },
+        {
+          name: d.name,
+          email: d.email,
+          subject: d.subject,
+          message: d.message,
+          from_name: d.name,
+          from_email: d.email,
+          reply_to: d.email,
+        },
         { publicKey: EMAILJS.publicKey },
       );
       setSent(true);
